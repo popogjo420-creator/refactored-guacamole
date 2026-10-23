@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Red Light, Green Light</title>
+  <script type="module" crossorigin src="./assets/index-Cjsm6Zzz.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-B3Gv20Ey.css">
+</head>
+<body>
+  <div id="stage"></div>
+
+  <div id="hud" hidden>
+    <div class="stats" aria-live="off">
+      <div><span data-i18n="time"></span> <b id="hud-time">42.0</b></div>
+      <div><span data-i18n="alive"></span> <b id="hud-alive">24</b></div>
+    </div>
+    <div id="signal" class="signal" role="status" aria-live="assertive">
+      <div id="signal-main"></div><div id="signal-sub"></div>
+      <div class="detect"><i id="detect-fill"></i></div>
+    </div>
+    <div class="progress" aria-hidden="true"><i id="progress-fill"></i><span id="progress-label"></span></div>
+    <div class="stamina"><span id="stamina-label" data-i18n="stamina"></span><div class="bar"><i id="stamina-fill"></i></div></div>
+    <button id="run-btn" class="run" type="button" data-i18n="run"></button>
+    <div id="countdown" class="countdown" hidden></div>
+  </div>
+
+  <div class="topbar">
+    <div class="mode-toggle" role="radiogroup" aria-label="Character style">
+      <button type="button" id="mode-proc" role="radio" data-i18n="modeProc"></button>
+      <button type="button" id="mode-model" role="radio" data-i18n="modeModel"></button>
+    </div>
+    <div class="top-actions">
+      <button type="button" id="pause-btn" class="icon" data-i18n-title="pause" hidden>❚❚</button>
+      <button type="button" id="mute-btn" class="icon" data-i18n-title="sound">🔊</button>
+      <button type="button" id="settings-btn" class="icon" data-i18n-title="settings">⚙</button>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" hidden></div>
+  <div id="error" class="error" hidden><span id="error-text"></span> <button type="button" id="retry-assets" data-i18n="retryAssets"></button></div>
+
+  <section id="intro" class="intro">
+    <h1 id="title"></h1>
+    <p class="tagline" data-i18n="tagline"></p>
+    <p class="howto" data-i18n="howto"></p>
+    <div class="row">
+      <button type="button" id="start-btn" class="primary" data-i18n="start"></button>
+      <button type="button" id="online-btn" class="secondary" data-i18n="online"></button>
+      <span class="best" id="intro-best"></span>
+    </div>
+    <p class="credit"><span data-i18n="credit"></span> <a href="https://x.com/jaredliu_bravo" target="_blank" rel="noopener">jared</a></p>
+  </section>
+
+  <section id="online" class="panel online" hidden>
+    <h2 data-i18n="online"></h2>
+    <p id="online-unavailable" class="note" data-i18n="onlineUnavailable" hidden></p>
+    <div id="online-choose">
+      <button type="button" id="create-room" class="primary" data-i18n="createRoom"></button>
+      <div class="join-row">
+        <input id="join-code" maxlength="8" autocomplete="off" spellcheck="false" aria-label="Room code" />
+        <button type="button" id="join-room" data-i18n="joinRoom"></button>
+      </div>
+    </div>
+    <div id="online-lobby" hidden>
+      <p class="code-line"><span data-i18n="roomCode"></span> <b id="room-code"></b> <button type="button" id="copy-code" data-i18n="copy"></button></p>
+      <p id="lobby-status" class="note" role="status"></p>
+      <button type="button" id="start-race" class="primary" data-i18n="startRace"></button>
+    </div>
+    <button type="button" id="online-close" data-i18n="leave"></button>
+  </section>
+
+  <section id="results" class="panel results" hidden>
+    <h2 id="results-title"></h2>
+    <p id="race-line" class="race-line" hidden></p>
+    <dl id="results-list"></dl>
+    <button type="button" id="retry-btn" class="primary" data-i18n="retry"></button>
+  </section>
+
+  <section id="paused" class="panel" hidden>
+    <h2 data-i18n="paused"></h2>
+    <button type="button" id="resume-btn" class="primary" data-i18n="resume"></button>
+  </section>
+
+  <section id="settings" class="panel settings" hidden>
+    <label><span data-i18n="language"></span>
+      <select id="lang-select"><option value="en">English</option><option value="zh">简体中文</option><option value="es">Español</option></select>
+    </label>
+    <label><input type="checkbox" id="sound-toggle" /> <span data-i18n="sound"></span></label>
+    <label><input type="checkbox" id="motion-toggle" /> <span data-i18n="reducedMotion"></span></label>
+    <button type="button" id="settings-close" data-i18n="close"></button>
+  </section>
+
+</body>
+</html>
